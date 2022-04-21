@@ -1,9 +1,8 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">20A</router-link> |
-      <router-link to="/group93">9.3</router-link> |
-      <router-link to="/user"><i class="el-icon-s-custom"></i></router-link>
+      <router-link to="/group93">20A</router-link> |
+      <router-link to="/user"><i class="el-icon-s-custom"> Профиль</i></router-link>
     </div>
     <router-view/>
   </div>

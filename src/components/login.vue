@@ -2,7 +2,7 @@
   <div class="w3-padding">
     <h2>Вход</h2>
      
-     <el-input type="number" placeholder="+7 .. без кода страны" v-model="phNo"></el-input>
+     <el-input type="email" placeholder="+7 .. без кода страны" v-model="phNo"></el-input>
      <br>
      <br>
      <el-input placeholder="пароль" v-model="password"></el-input>
@@ -24,13 +24,12 @@
     methods:{
       login(){
         let vm = this
-        let countryCode = '+7' //india
-        let email = countryCode + this.phNo + '@domainName.com'
+        let email = this.phNo
         let password = this.password
         //
         firebase.auth().signInWithEmailAndPassword(email, password).then(function(){
           //route to home on success !
-          vm.$router.push({path:'/home'})
+          vm.$router.push({path:'/user'})
         }).catch(function(error) {
           // Handle Errors here.
           var errorCode = error.code;

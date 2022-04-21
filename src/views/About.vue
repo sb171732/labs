@@ -4,26 +4,43 @@
         <table class="w3-table">
                <tr>
                    <th>#</th> <th>fio</th> 
-                   <th>Основы HTML / CSS</th>
-                   <th>JS 1</th>
-                   <th>JS 2</th>
-                   <th>JS 3</th>
-                   <th>JS 4</th>
-                   <th>JS 5</th>
-                   <th>JS 6</th>
-                   <th>JS 7</th>
-                   <th>PHP 1</th>
-                   <th>PHP 2</th>
-                   <th>PHP 3</th>
-                   <th>Wordpress</th>
+                   <th>Reged</th>
+                   <th>Структура программы</th>
+                   <th>Условный оператор </th>
+                   <th>Оператор выбора</th>
+                   <th>Цикл for</th>
+                   <th>Массивы</th>
+                   <th>#1</th>
+                   <th>#2</th>
+                   <th>#3</th>
+                   <th>#4</th>
+                   <th>#5</th>
+                   <th>#6</th>
+                   <th>#7</th>
+                   <th>#8</th>
+                   <th>#9</th>
+                   <th>#10</th>
+                   <th>#11</th>
+                   <th>#12</th>
+                   <th>#13</th>
+                   <th>#14</th>
+                   <th>#15</th>
                    <th>Зачет</th>
                </tr>
                <tr v-for="(s,index) of Group" :key="s.id">
                     <td>{{ index }} </td>
                     <td>{{ s.fio }} </td>
+                    <td v-if="s.uid!=''"><i class="el-icon-success w3-text-green"></i> </td>
+                    <td v-else> <i class="el-icon-remove w3-text-red"></i> </td>
                     
                </tr>
         </table>
+         <el-drawer
+  title="I am the title"
+  :visible.sync="drawer"
+  :with-header="false">
+  <span>Hi there!</span>
+</el-drawer>
   </div>
 </template>
 
@@ -34,25 +51,27 @@ export default {
       name: 'Home',
       data(){
           return {
-                  checked:false
+                  checked:false,
+                  drawer:false
           }
       },
       computed:{
           Group(){
-            return store.state.group93
+            return store.state.group20A
           },
+          // Test(){
+          //   return store.state.test20a
+          // },
         
       },
       methods:{
-        getPara(num,groupId,weekId){
-           return this.Para.filter((n)=>{ return (n.num.match(num))&&(n.groupId.match(groupId))&&(n.weekId.match(weekId)) })   
-        },
-        getSubjects(id){
-           return this.Subjects.filter((n)=>{ return n.id.match(id) })   
+        getTestResult(uid,num){
+           return this.Test.filter((n)=>{ return (n.uid.match(uid)&&(n.num.match(num))) })   
         } 
       },
       created(){
-        store.dispatch("bindGroup93");
+        store.dispatch("bindGroup20A");
+        // store.dispatch("bindTest93");
     }
 }
 </script>

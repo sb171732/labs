@@ -16,6 +16,7 @@ export const store = new Vuex.Store({
         shopCart:[],
         group20A: [],
         group93: [],
+        test93: [],
     },
     mutations: {
         ...vuexfireMutations,
@@ -27,6 +28,12 @@ export const store = new Vuex.Store({
        }
     },
     actions: {
+        // bindGroup20A: firestoreAction(({ bindFirestoreRef }) => {
+        //     return bindFirestoreRef('group20A', db.collection('20.A'))
+        // }),
+        bindTest93: firestoreAction(({ bindFirestoreRef }) => {
+            return bindFirestoreRef('test93', db.collection('test93'))
+        }),
         bindGroup20A: firestoreAction(({ bindFirestoreRef }) => {
             return bindFirestoreRef('group20A', db.collection('20.A'))
         }),
